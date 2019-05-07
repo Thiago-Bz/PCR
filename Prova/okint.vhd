@@ -11,15 +11,16 @@ entity okint is
     Port ( clk : in STD_LOGIC;
            start : in STD_LOGIC;
            ready : in STD_LOGIC;
+           reset : in STD_LOGIC;
            ok : in STD_LOGIC_VECTOR (27 downto 0);
            oz : in STD_LOGIC_VECTOR (27 downto 0);
-           Gk : in STD_LOGIC_VECTOR (27 downto 0));
-           okint : out STD_LOGIC_VECTOR (27 downto 0));
+           Gk : in STD_LOGIC_VECTOR (27 downto 0);
+           okout : out STD_LOGIC_VECTOR (27 downto 0));
 end okint;
 
 architecture Behavioral of okint is
 signal outmul : std_logic_vector(FP_WIDTH-1 downto 0):= (others=>'0');
-signal rdydmul : STD_LOGIC := '0';
+signal rdymul : STD_LOGIC := '0';
 signal rdyadd_0 : STD_LOGIC := '0';
 signal outadd_0 : STD_LOGIC_VECTOR (FP_WIDTH-1 downto 0) := (others=>'0');
 signal Gkint : STD_LOGIC_VECTOR (FP_WIDTH-1 downto 0) := (others=>'0');
@@ -34,16 +35,16 @@ begin
     mul_out   => outmul,
     ready_mul => rdymul);
     
-    add1: addsubfsm_v6 port map(
+    add0: addsubfsm_v6 port map(
     reset      => reset,
     clk        => clk,   
     op         => '0',   
     op_a       => outmul,
     op_b       => ok,
     start_i    => rdymul,
-    addsub_out => outadd_1,
-    ready_as   => rdyadd_1);
+    addsub_out => outadd_0,
+    ready_as   => rdyadd_0);
     
-    okint <= outadd_1;
+    okout <= outadd_0;
 
 end Behavioral;
