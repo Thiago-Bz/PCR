@@ -11,4 +11,12 @@ https://www.instructables.com/id/Energy-Efficient-Motion-Activated-Street-Lights
 
 https://www.nandland.com/vhdl/tips/tip-convert-numeric-std-logic-vector-to-integer.html
 
+Links para o dds
 esse >>https://opencores.org/projects?expanded=DSP%20core
+https://surf-vhdl.com/how-to-implement-sinusoidal-dds-vhdl/
+http://www.lancasterhunt.co.uk/direct-digital-synthesis-dds-for-idiots-like-me/
+https://www.fpga4fun.com/DDS.html
+https://www.xilinx.com/support/documentation/ip_documentation/dds.pdf
+https://github.com/spr02/DDS
+https://github.com/jaruiz/vhdl_samples/blob/master/hdl/dds.vhdl
+http://en.pudn.com/download/tag/id/17627/p/1.html
